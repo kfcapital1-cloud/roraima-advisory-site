@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roraima Advisory</title>
+<style>
+  :root {
+    --navy: #1F2A44;
+    --gold: #9C7A2E;
+    --grey: #5A5A5A;
+    --lightgrey: #F7F6F3;
+    --border: #E2E0DA;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: Calibri, Arial, sans-serif;
+    color: #222;
+    background: #ffffff;
+    line-height: 1.6;
+  }
+  h1, h2, h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    color: var(--navy);
+    font-weight: normal;
+  }
+  a { color: inherit; }
+  .wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* Nav */
+  nav {
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+  }
+  nav .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .wordmark {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    letter-spacing: 0.5px;
+  }
+  .wordmark span { color: var(--gold); }
+  .navlinks {
+    display: flex;
+    gap: 28px;
+    font-size: 13px;
+    letter-spacing: 0.3px;
+  }
+  .navlinks a {
+    text-decoration: none;
+    color: var(--grey);
+  }
+  .navlinks a:hover { color: var(--navy); }
+
+  /* Hero */
+  .hero {
+    padding: 90px 0 70px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero .eyebrow {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-size: 40px;
+    line-height: 1.25;
+    max-width: 780px;
+    margin-bottom: 22px;
+  }
+  .hero p {
+    font-size: 16px;
+    color: #333;
+    max-width: 620px;
+  }
+
+  /* Generic section */
+  section {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  section.alt { background: var(--lightgrey); }
+  .section-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  section h2 {
+    font-size: 26px;
+    margin-bottom: 22px;
+    max-width: 760px;
+  }
+  section > .wrap > p.lead {
+    font-size: 15.5px;
+    color: #333;
+    max-width: 680px;
+    margin-bottom: 36px;
+  }
+
+  /* Value Added grid */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .approach-card {
+    background: #fff;
+    padding: 26px 24px;
+  }
+  .approach-card .num {
+    font-family: Georgia, serif;
+    font-size: 28px;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .approach-card h3 {
+    font-size: 16px;
+    line-height: 1.3;
+    min-height: 42px;
+    margin-bottom: 8px;
+  }
+  .approach-card p {
+    font-size: 14px;
+    color: #444;
+  }
+  @media (max-width: 700px) {
+    .approach-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .approach-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 640px) {
+    .wrap { padding: 0 20px; }
+
+    nav { padding: 16px 0; }
+    nav .wrap { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .navlinks { gap: 16px; flex-wrap: wrap; row-gap: 8px; font-size: 12.5px; }
+
+    .hero { padding: 52px 0 40px 0; }
+    .hero .eyebrow { font-size: 11px; letter-spacing: 1.5px; margin-bottom: 14px; }
+    .hero h1 { font-size: 26px; line-height: 1.3; }
+    .hero p { font-size: 14.5px; }
+
+    section { padding: 40px 0; }
+    section h2 { font-size: 21px; margin-bottom: 18px; }
+    section > .wrap > p.lead { font-size: 14.5px; margin-bottom: 26px; }
+
+    .approach-card, .focus-card { padding: 20px 18px; }
+    .approach-card h3, .focus-card h3 { min-height: 0; }
+
+    .focus-grid { flex-direction: column; }
+    .focus-card { flex: 1 1 auto; }
+
+    .statement { padding: 44px 0; }
+    .statement blockquote { font-size: 18px; }
+
+    .split { gap: 28px; }
+
+    .contact { padding: 52px 0; }
+    .contact a.email { font-size: 17px; }
+  }
+
+  /* Focus grid */
+  .focus-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .focus-card {
+    flex: 1 1 220px;
+    background: #fff;
+    padding: 26px 24px;
+  }
+  .focus-card h3 {
+    font-size: 15px;
+    line-height: 1.3;
+    min-height: 39px;
+    margin-bottom: 8px;
+  }
+  .focus-card p {
+    font-size: 13.5px;
+    color: #444;
+  }
+
+  /* Credibility statement */
+  .statement {
+    padding: 70px 0;
+    text-align: center;
+  }
+  .statement blockquote {
+    font-family: Georgia, serif;
+    font-size: 21px;
+    line-height: 1.55;
+    color: var(--navy);
+    max-width: 680px;
+    margin: 0 auto;
+    font-style: italic;
+  }
+  .statement .rule {
+    width: 40px;
+    height: 2px;
+    background: var(--gold);
+    margin: 24px auto 0 auto;
+  }
+
+  /* Two column: investors / companies */
+  .split {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .split > div { flex: 1 1 380px; }
+  .split h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  .split p {
+    font-size: 14.5px;
+    color: #333;
+  }
+
+  /* Contact */
+  .contact {
+    text-align: center;
+    padding: 80px 0;
+  }
+  .contact h2 { margin: 0 auto 16px auto; }
+  .contact p { color: #444; margin-bottom: 26px; }
+  .contact a.email {
+    display: inline-block;
+    font-family: Georgia, serif;
+    font-size: 19px;
+    color: var(--navy);
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 4px;
+    text-decoration: none;
+  }
+
+  footer {
+    padding: 28px 0;
+    font-size: 12px;
+    color: var(--grey);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <div class="wordmark">RORAIMA<span> </span><span>ADVISORY</span></div>
+      <div class="navlinks">
+        <a href="#value">Value Added</a>
+        <a href="#focus">Focus</a>
+        <a href="#investors">Investors</a>
+        <a href="#companies">Companies</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Emerging Markets &amp; Special Situations</div>
+      <h1>Connecting institutional capital with credible opportunities in Venezuela's re-opening economy.</h1>
+      <p>Roraima Advisory sources, develops, and places investment opportunities across energy, infrastructure,
+      financial services, and agriculture â working with a small number of international emerging-market and
+      special-situations investors.</p>
+    </div>
+  </header>
+
+  <section id="value">
+    <div class="wrap">
+      <div class="section-label">Value Added</div>
+      <h2>Capabilities that go beyond introductions.</h2>
+      <div class="approach-grid">
+        <div class="approach-card">
+          <h3>Origination</h3>
+          <p>A curated pipeline of screened, credible opportunities matched to a specific mandate â not unfiltered
+          deal flow.</p>
+        </div>
+        <div class="approach-card">
+          <h3>Market &amp; Political Intelligence</h3>
+          <p>An on-the-ground read on political, regulatory, and commercial risk that's difficult to assess from
+          outside the country.</p>
+        </div>
+        <div class="approach-card">
+          <h3>Deal Development</h3>
+          <p>Turning incomplete, informal information into a fully documented, institutional-quality proposition,
+          with every assumption clearly labelled.</p>
+        </div>
+        <div class="approach-card">
+          <h3>Capital Structuring Advisory</h3>
+          <p>Helping determine the right mix of equity, debt, or partnership structure before approaching capital,
+          rather than a one-size-fits-all pitch.</p>
+        </div>
+        <div class="approach-card">
+          <h3>Transaction Support</h3>
+          <p>Coordinating due diligence, structuring, and negotiation through to closing.</p>
+        </div>
+        <div class="approach-card">
+          <h3>Post-Investment Engagement</h3>
+          <p>Ongoing local oversight and reporting once capital is deployed, where a continued role makes sense.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="focus" class="alt">
+    <div class="wrap">
+      <div class="section-label">Focus</div>
+      <h2>Sectors where capital and local execution rarely meet easily.</h2>
+      <div class="focus-grid">
+        <div class="focus-card">
+          <h3>Energy &amp; Natural Resources</h3>
+          <p>Operating mining businesses, midstream oil &amp; gas infrastructure, processing facilities, and
+          export-oriented resource businesses.</p>
+        </div>
+        <div class="focus-card">
+          <h3>Infrastructure &amp; Electricity</h3>
+          <p>Power generation, grid and transmission infrastructure, logistics, and infrastructure supporting
+          industrial and mining operations.</p>
+        </div>
+        <div class="focus-card">
+          <h3>Financial Services &amp; Private Credit</h3>
+          <p>Trade finance, working capital facilities, and strategic capital for financial institutions and
+          corporate lending platforms.</p>
+        </div>
+        <div class="focus-card">
+          <h3>Agriculture</h3>
+          <p>Large-scale farming, agribusiness, food processing, and export-oriented agricultural operations,
+          where scale is sufficient.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="statement">
+    <div class="wrap">
+      <blockquote>"Grounded in direct, long-standing relationships with operating businesses across Venezuela's
+      energy, mining, and infrastructure sectors â not a desk-based view of the market."</blockquote>
+      <div class="rule"></div>
+    </div>
+  </section>
+
+  <section id="investors">
+    <div class="wrap">
+      <div class="section-label">Who We Work With</div>
+      <div class="split">
+        <div id="investors-col">
+          <h3>For Investors</h3>
+          <p>We work with a small number of international emerging-market and special-situations funds, sourcing
+          and developing opportunities before they reach a wider audience. Every opportunity we bring forward has
+          been screened against a clear mandate, and every assumption within it is explicitly labelled as such.</p>
+        </div>
+        <div id="companies">
+          <h3>For Companies &amp; Asset Owners</h3>
+          <p>For Venezuelan businesses and asset owners exploring growth capital, a strategic partnership, or a
+          partial or full transaction, we help prepare a credible, institutional-quality proposition and identify
+          the right capital partner for the situation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact alt">
+    <div class="wrap">
+      <h2>Get in touch</h2>
+      <p>Strictly private conversations. No information is shared without agreement from all sides.</p>
+      <a class="email" href="mailto:contact@roraima-advisory.com">contact@roraima-advisory.com</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Roraima Advisory. All conversations are treated as confidential.
+  </footer>
+
+</body>
+</html>
